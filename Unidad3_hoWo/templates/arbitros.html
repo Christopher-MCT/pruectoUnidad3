@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Lista de Arbitros</h1>
+    <ul>
+        {% for arbitro in arbitros %}
+        <div class="canvas-box">
+
+            <h2>{{ arbitro.name }}</h2>
+            <img src="{{ arbitro.img.url }}" alt="{{ arbitro.name }}" width="150" />
+        
+            <a class="btn btn-danger" href="{% url 'eliminar_arbitro' arbitro.pk %}">Eliminar</a>
+         
+            
+        </div>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
+
+

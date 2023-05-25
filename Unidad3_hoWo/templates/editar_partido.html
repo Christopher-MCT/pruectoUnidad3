@@ -1,0 +1,36 @@
+
+
+{% block content %}
+  <h1>Editar Partido</h1>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Guardar">
+  </form>
+  <script>
+    // Validación personalizada del formulario
+    document.querySelector('form').addEventListener('submit', function(event) {
+      var equipo1Id = document.querySelector('#id_equipo1').value;
+      var equipo2Id = document.querySelector('#id_equipo2').value;
+      var fecha = document.querySelector('#id_fecha').value;
+      
+      // Validar que los equipos sean diferentes
+      if (equipo1Id === equipo2Id) {
+        alert('No pueden jugar un partido contra sí mismo el equipo');
+        event.preventDefault();
+        return;
+      }
+      
+      // Validar que la fecha y hora no coincidan con otros partidos
+      var partidos = {{ partidos|safe }};
+      for (var i = 0; i < partidos.length; i++) {
+        var partido = partidos[i];
+        if (partido.id !== {{ partido.id }} && partido.fecha === fecha) {
+          alert('Fecha y hora inválidas. Verifica los partidos ya creados para escoger fecha y hora correctas');
+          event.preventDefault();
+          return;
+        }
+      }
+    });
+  </script>
+{% endblock %}

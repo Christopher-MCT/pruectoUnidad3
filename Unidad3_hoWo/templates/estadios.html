@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+    {% block content %}
+
+    <h1>Lista de Estadios</h1>
+    <ul>
+        {% for estadio in estadios %}
+        <div class="canvas-box">
+            <h2>{{ estadio.name }}</h2>
+            <img src="{{ estadio.img.url }}" alt="{{ estadio.name }}" width="150" />
+        </div>
+        {% endfor %}
+    </ul>
+
+    {% endblock %}

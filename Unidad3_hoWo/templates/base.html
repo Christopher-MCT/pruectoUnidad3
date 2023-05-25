@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tu aplicación</title>
+    <link rel="stylesheet" href="{% static 'styles/main.css' %}">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'equipos' %}">Equipos</a></li>
+            <li><a href="{% url 'jugadores' %}">Jugadores</a></li>
+            <li><a href="{% url 'arbitros' %}">Árbitros</a></li>
+            <li><a href="{% url 'estadios' %}">Estadios</a></li>
+            <li><a href="{% url 'ligas' %}">Ligas</a></li>
+            <li><a href="{% url 'coachs' %}">Coaches</a></li>
+            <li><a href="{% url 'partidos' %}">Partidos</a></li>
+        </ul>
+    </nav>
+
+    <div>
+        {% block content %}
+        <!-- Contenido de la página -->
+        {% endblock %}
+    </div>
+</body>
+</html>
+

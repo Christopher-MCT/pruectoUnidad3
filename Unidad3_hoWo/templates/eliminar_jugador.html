@@ -1,0 +1,12 @@
+
+
+{% block content %}
+  <h1>Eliminar Jugador</h1>
+  <p>¿Estás seguro de que deseas eliminar este jugador?</p>
+  <h2>{{ object.name }}</h2>
+  <img src="{{ post.img.url }}" alt="{{ post.name }}" width="150">
+  <form method="post">
+    {% csrf_token %}
+    <input type="submit" value="Eliminar">
+  </form>
+{% endblock %}

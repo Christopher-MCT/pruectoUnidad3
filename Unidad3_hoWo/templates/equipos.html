@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+  {% block content %}
+
+  <h1>Equipos Lista</h1>
+  <table class="mitable">
+    {% for post in object_list %}
+      <tr>
+        <td class="celda">
+          <img src="{{ post.img.url }}" alt="{{ post.name }}" width="150">
+        </td>
+
+        <td class="celda"> 
+          <h2>{{ post.name }}</h2>
+        </td>
+        
+       
+      </tr>
+    {% endfor %}
+  </table>
+
+  {% endblock %}

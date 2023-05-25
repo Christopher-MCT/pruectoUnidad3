@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Jugadores</h1>
+  <div class="container">
+
+    {% for jugador in object_list %}
+
+      <div  class="canvas-box">
+
+        <div class = "frontal">
+
+        
+         <img src="{{ jugador.img.url }}" alt="{{ jugador.name }}" class="imagen">
+        
+        </div>
+
+        <div class="trasera">
+
+          <label for="name">Nombre Equipo: <p>{{ jugador.equipo.name }}</p></label>
+          <label for="name">Numero de playera: <p>{{ jugador.numeroCamisa }}</p></label>
+          <label for="name">Posicion: <p>{{ jugador.posicion }}</p></label>
+          <a href="{% url 'eliminar_jugador' jugador.pk %}" class="btn btn-danger">Eliminar</a>
+        </div>
+
+      </div>
+    {% endfor %}
+
+  </div>
+{% endblock %}
+

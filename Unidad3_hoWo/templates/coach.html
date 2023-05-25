@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Lista de Coachs</h1>
+<ul>
+    {% for coach in coachs %}
+    <div class="canvas-box">
+        <h2>{{ coach.name }}</h2>
+        <img src="{{ coach.img.url }}" alt="{{ coach.name }}" width="150" />
+    </div>
+    {% endfor %}
+</ul>
+{% endblock %}
+   
+
